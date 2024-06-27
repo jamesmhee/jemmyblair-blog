@@ -1,5 +1,4 @@
 import React, { SetStateAction } from 'react'
-import { FaHamburger } from "react-icons/fa";
 
 interface isHamburgerProps {
     isHamburger: boolean

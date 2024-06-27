@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { ThemeContext } from '../utils/store/ThemeStore'
 
 interface ILayoutProps{
