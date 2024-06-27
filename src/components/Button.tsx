@@ -2,24 +2,25 @@ import React from 'react'
 
 type Props = {
     text: string
-    type: string
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    style: string
+    type?: "submit" | "reset" | "button"
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button = ({text, type, onClick}: Props) => {
+const Button = ({text, style, type, onClick}: Props) => {
     const findType = () =>{
-        if(type === 'signin'){
+        if(style === 'signin'){
             return 'btn-success'
-        }else if(type === 'signup'){
+        }else if(style === 'signup'){
             return 'btn-warning'
-        }else if(type === 'secondary'){
+        }else if(style === 'secondary'){
             return 'btn-secondary'
-        }else if(type === 'accent'){
+        }else if(style === 'accent'){
             return 'btn-accent'
         }
     }
   return (
-    <button onClick={onClick} type="button" className={'btn ' + findType()}>
+    <button onClick={onClick} type={type} className={'btn ' + findType()}>
         {text}
     </button>
   )
