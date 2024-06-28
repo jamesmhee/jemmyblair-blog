@@ -1,7 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import MillionLint from "@million/lint";
+import { defineConfig } from "vite";
+import react from '@vitejs/plugin-react-swc'; // Import the react plugin
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    react(), // Include the react plugin
+    MillionLint.vite() // Include the MillionLint plugin
+  ],
+});

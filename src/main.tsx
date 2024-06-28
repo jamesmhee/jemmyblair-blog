@@ -4,7 +4,7 @@ import './index.css'
 import { ThemeStore } from './utils/store/ThemeStore.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <ThemeStore>
+  <ThemeStore>    
     <App />
   </ThemeStore>
   // <React.StrictMode>

@@ -10,27 +10,28 @@ interface ThemeContextProps {
 }
 export const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps)
 
-export const ThemeStore = ({children}:ThemeStoreProps) => {
-  const theme:string | null = localStorage.getItem("theme")
+export function ThemeStore({ children }: ThemeStoreProps) {
+  const theme: string | null = localStorage.getItem("theme")
   const [isDark, setIsDark] = useState<boolean>(theme ? theme === "dark" ? true : false : false)
+    
 
-  useEffect(()=>{
-    if(!theme){      
-      localStorage.setItem("theme", "dark")      
-    }else{
-      if(theme === "dark"){
+  useEffect(() => {    
+    if (!theme) {
+      localStorage.setItem("theme", "dark")
+    } else {
+      if (theme === "dark") {
         setIsDark(true)
-      }else{
+      } else {
         setIsDark(false)
-      }          
-    }      
+      }
+    }
   }, [theme])
-  
-  const store = useMemo(()=>({ 
+
+  const store = useMemo(() => ({
     isDark,
     setIsDark
   }), [isDark, setIsDark])
-  
+
   return (
     <ThemeContext.Provider value={store}>
       {children}

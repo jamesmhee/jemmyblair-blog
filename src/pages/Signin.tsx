@@ -34,7 +34,7 @@ const Signin = () => {
   return (
     <div className='flex flex-col gap-2 items-center w-screen h-full justify-center'>      
       <b className='text-2xl'>SIGN IN</b>
-      <form onSubmit={signIn} className='flex justify-center gap-5 flex-col items-center'>
+      <form onSubmit={signIn} className='flex justify-center gap-5 flex-col items-center w-full'>
         <Input onInput={setUserName} type={'text'} placeholder={'USERNAME'}/>
         <Input onInput={setPassWord} type={'password'} placeholder={'PASSWORD'}/>
         <div className='flex gap-5'>
