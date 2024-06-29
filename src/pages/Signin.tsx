@@ -22,14 +22,17 @@ const Signin = () => {
     setUserForm({ ...userForm, password: event.target.value });
   }
 
-  const signIn = (event:React.ChangeEvent<HTMLFormElement>) =>{
+  const signIn = async (event:React.ChangeEvent<HTMLFormElement>) =>{
     event.preventDefault()    
     if(userForm.username.trim().length <= 0){
       return
     }else if(userForm.password.trim().length <= 0){
       return
     }
-    SignIn(userForm)
+    const signIn = await SignIn(userForm)
+    if(signIn !== 'Failed'){
+      alert("Login Succes But Nothing Happend :P")
+    }
     console.log(userForm)
   }
 
