@@ -45,7 +45,7 @@ const Signin = () => {
         <Input onInput={setPassWord} type={'password'} placeholder={'PASSWORD'}/>
         <div className='flex gap-5'>
           <Button type={'submit'} text={'Sign In'} style={'secondary'}/>
-          <Link to="signup">
+          <Link to="/signup">
             <Button type={'button'} text={'Sign Up'} style={'accent'}/>
           </Link>
         </div>
