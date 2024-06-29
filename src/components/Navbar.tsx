@@ -6,7 +6,7 @@ import Hamburger from '../components/Hamburger'
 const Navbar = () => {
     const [isHamburger, setIsHamburger] = useState<boolean>(false)    
     return (
-        <nav className="hidden navbar flex justify-between bg-base-100 border-b sticky top-0">        
+        <nav className="navbar flex justify-between bg-base-100 border-b sticky top-0">        
             <Link to="/">
                 <button className='btn btn-ghost text-xl rounded-2xl'>
                     JEMMYBLAIR

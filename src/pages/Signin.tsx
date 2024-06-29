@@ -1,20 +1,21 @@
 import React, {useState} from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
+import { SignIn } from '../services/UserServices'
 
 interface ILoginProps {
-  user: string
+  username: string
   password: string  
 }
 
 const Signin = () => {
   const [userForm, setUserForm] = useState<ILoginProps>({
-    user: '',
+    username: '',
     password: ''
   })
 
   const setUserName = (event:React.ChangeEvent<HTMLInputElement>) =>{
-    setUserForm({ ...userForm, user: event.target.value });    
+    setUserForm({ ...userForm, username: event.target.value });    
   }
 
   const setPassWord = (event:React.ChangeEvent<HTMLInputElement>) =>{
@@ -23,11 +24,12 @@ const Signin = () => {
 
   const signIn = (event:React.ChangeEvent<HTMLFormElement>) =>{
     event.preventDefault()    
-    if(userForm.user.trim().length <= 0){
+    if(userForm.username.trim().length <= 0){
       return
     }else if(userForm.password.trim().length <= 0){
       return
     }
+    SignIn(userForm)
     console.log(userForm)
   }
 
