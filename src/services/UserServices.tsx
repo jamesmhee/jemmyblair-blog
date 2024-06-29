@@ -1,3 +1,6 @@
+const dev = 'dev'
+const endpoint = dev === 'dev' ? process.env.ENDPOINT_LOCAL : process.env.ENDPOINT_HOST
+
 export const SignIn = async ({username, password}:{username:string, password:string}) =>{
     let config:object = {
         method: "POST",
@@ -6,7 +9,7 @@ export const SignIn = async ({username, password}:{username:string, password:str
         },
         body: JSON.stringify({username, password})
     }
-    const signIn = await fetch('https://api.carmanrider.autos/blog/signin', config)
+    const signIn = await fetch(endpoint + 'signin', config)
     if(signIn.ok){
         return await signIn.json()
     }else{
@@ -22,7 +25,7 @@ export const SignUp = async ({username, password}:{username:string, password:str
         },
         body: JSON.stringify({username, password})
     }
-    const signUp = await fetch('https://api.carmanrider.autos/blog/signup', config)
+    const signUp = await fetch(endpoint + '/signup', config)
     if(signUp.ok){
         return await signUp.json()
     }else{
