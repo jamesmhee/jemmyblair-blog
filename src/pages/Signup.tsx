@@ -14,7 +14,8 @@ const Signup = () => {
         password: ''
     })
 
-    const signUp = async () =>{
+    const signUp = async (event:React.ChangeEvent<HTMLFormElement>) =>{
+        event.preventDefault()
         if(!UserForm.username){
             return
         }else if(!UserForm.password){
