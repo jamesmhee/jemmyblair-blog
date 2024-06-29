@@ -3,6 +3,7 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import { SignIn } from '../services/UserServices'
 import { Link } from 'react-router-dom'
+import Loading from '../components/Loading'
 
 interface ILoginProps {
   username: string
@@ -14,6 +15,7 @@ const Signin = () => {
     username: '',
     password: ''
   })
+  const [isLogin, setIsLogin] = useState<boolean>(false)
 
   const setUserName = (event:React.ChangeEvent<HTMLInputElement>) =>{
     setUserForm({ ...userForm, username: event.target.value });    
@@ -30,16 +32,20 @@ const Signin = () => {
     }else if(userForm.password.trim().length <= 0){
       return
     }
+    setIsLogin(true)
     const signIn = await SignIn(userForm)
     if(signIn !== 'Failed'){
       alert("Login Succes But Nothing Happend :P")
-    }
-    console.log(userForm)
+    }else{
+      alert("Does not have this user")
+    }    
+    setIsLogin(false)
   }
   
   return (
     <div className='flex flex-col gap-2 items-center w-screen h-full justify-center'>      
       <b className='text-2xl'>SIGN IN</b>
+      {isLogin && <Loading word={'Sign In..'}/>}
       <form onSubmit={signIn} className='flex justify-center gap-5 flex-col items-center w-full'>
         <Input onInput={setUserName} type={'text'} placeholder={'USERNAME'}/>
         <Input onInput={setPassWord} type={'password'} placeholder={'PASSWORD'}/>

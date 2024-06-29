@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import { SignUp } from '../services/UserServices'
+import Loading from '../components/Loading'
 
 interface ISignUpProps{
     username: string
@@ -13,6 +14,7 @@ const Signup = () => {
         username: '',
         password: ''
     })
+    const [ isSignup, setIsSignup ] = useState<boolean>(false)
 
     const signUp = async (event:React.ChangeEvent<HTMLFormElement>) =>{
         event.preventDefault()
@@ -22,10 +24,14 @@ const Signup = () => {
             return
         }
 
+        setIsSignup(true)
         const sendSignup = await SignUp(UserForm)
         if(sendSignup !== 'Failed'){
-            console.log("Sign Up Success", UserForm.username)
+            alert("Sign Up Success Welcome New Member :)")            
+        }else{            
+            alert("User Duplicated :(")            
         }
+        setIsSignup(false)
     }
 
     const setUsername = (event:React.ChangeEvent<HTMLInputElement>) =>{
@@ -39,6 +45,7 @@ const Signup = () => {
   return (
     <div className='flex flex-col gap-2 items-center w-screen h-full justify-center'>      
       <b className='text-2xl'>SIGN UP</b>
+      {isSignup && <Loading word={'Sign up..'}/>}
       <form onSubmit={signUp} className='flex justify-center gap-5 flex-col items-center w-full'>
         <Input onInput={setUsername} type={'text'} placeholder={'USERNAME'}/>
         <Input onInput={setPassword} type={'password'} placeholder={'PASSWORD'}/>
