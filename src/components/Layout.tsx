@@ -18,8 +18,8 @@ const Layout = ({children}:ILayoutProps) => {
     }
 
     return (
-        <div data-theme={isDark ? "dark" : "wireframe"} className="w-screen h-screen relative">            
-            <label className="swap swap-rotate absolute bottom-2 right-2">                
+        <div data-theme={isDark ? "dark" : "wireframe"} className="w-screen h-screen">            
+            <label className="swap swap-rotate fixed bottom-2 right-2">                
                 <input checked={isDark ? true : false} onChange={handleTheme} type="checkbox" className="theme-controller" value="synthwave" />                                
                 <svg
                     className="swap-off h-10 w-10 fill-current"
