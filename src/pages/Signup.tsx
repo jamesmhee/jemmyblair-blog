@@ -37,13 +37,13 @@ const Signup = () => {
 
   return (
     <div className='flex flex-col gap-2 items-center w-screen h-full justify-center'>      
-      <b className='text-2xl'>SIGN IN</b>
+      <b className='text-2xl'>SIGN UP</b>
       <form onSubmit={signUp} className='flex justify-center gap-5 flex-col items-center w-full'>
         <Input onInput={setUsername} type={'text'} placeholder={'USERNAME'}/>
         <Input onInput={setPassword} type={'password'} placeholder={'PASSWORD'}/>
         <div className='flex gap-5'>
-          <Button type={'submit'} text={'Sign In'} style={'secondary'}/>
-          <Button type={'button'} text={'Sign Up'} style={'accent'}/>
+          <Button type={'submit'} text={'Sign Up'} style={'secondary'}/>
+          {/* <Button type={'button'} text={'Sign Up'} style={'accent'}/> */}
         </div>
       </form>
     </div>
