@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import { SignIn } from '../services/UserServices'
+import { Link } from 'react-router-dom'
 
 interface ILoginProps {
   username: string
@@ -35,7 +36,7 @@ const Signin = () => {
     }
     console.log(userForm)
   }
-
+  
   return (
     <div className='flex flex-col gap-2 items-center w-screen h-full justify-center'>      
       <b className='text-2xl'>SIGN IN</b>
@@ -44,7 +45,9 @@ const Signin = () => {
         <Input onInput={setPassWord} type={'password'} placeholder={'PASSWORD'}/>
         <div className='flex gap-5'>
           <Button type={'submit'} text={'Sign In'} style={'secondary'}/>
-          <Button type={'button'} text={'Sign Up'} style={'accent'}/>
+          <Link to="signup">
+            <Button type={'button'} text={'Sign Up'} style={'accent'}/>
+          </Link>
         </div>
       </form>
     </div>
