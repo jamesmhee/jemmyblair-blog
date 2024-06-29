@@ -11,8 +11,8 @@ export const SignIn = async ({username, password}:{username:string, password:str
         body: JSON.stringify({username, password})
     }
     const signIn = await fetch(endpoint + 'signin', config)
-    return await signIn.json()
     if(signIn.ok){
+        return await signIn.json()
     }else{
         return 'Failed'
     }
