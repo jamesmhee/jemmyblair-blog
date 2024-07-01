@@ -1,8 +1,11 @@
+import { useContext } from "react"
+import { UserContext } from "../utils/store/UserStore"
+
 const Home = () => {        
-    
+    const { userDetails, setUserDetails } = useContext(UserContext)
   return (    
     <div className="flex items-center justify-center text-4xl h-full">
-      H!
+      H! {userDetails.username}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-let dev = 'host'
+let dev = 'dev'
 const endpoint = dev === 'dev' ? import.meta.env.VITE_ENDPOINT_LOCAL : import.meta.env.VITE_ENDPOINT_HOST
 
 export const SignIn = async ({username, password}:{username:string, password:string}) =>{

@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Layout from './components/Layout';
@@ -7,11 +8,11 @@ import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import './index.css';
 
-function App() {
+function App() {  
   return (
     <BrowserRouter>
-      <Layout>
-        <Navbar />
+      <Layout>        
+        <Navbar />        
         <div className='h-[90%] overflow-y-auto overflow-x-hidden'>
           <Routes>
             <Route path="/" element={<Home />} />          
