@@ -1,4 +1,4 @@
-const endpoint = import.meta.env.VITE_ENV !== 'PROD' ? import.meta.env.VITE_ENDPOINT_LOCAL : import.meta.env.VITE_ENDPOINT_HOST
+const endpoint = import.meta.env.VITE_ENV === 'PROD' ? import.meta.env.VITE_ENDPOINT_HOST : import.meta.env.VITE_ENDPOINT_LOCAL;
 
 export const SignIn = async ({username, password}:{username:string, password:string}) =>{
     let config:object = {

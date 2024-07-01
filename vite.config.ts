@@ -8,6 +8,6 @@ export default defineConfig({
     MillionLint.vite() // Include the MillionLint plugin
   ],
   define: {
-    'process.env': {},
+    __APP_ENV__: process.env.VITE_VERCEL_ENV,
   },
 });
