@@ -1,4 +1,4 @@
-const endpoint = import.meta.env.VITE_ENV === 'dev' ? import.meta.env.VITE_ENDPOINT_LOCAL : import.meta.env.VITE_ENDPOINT_HOST
+const endpoint = import.meta.env.VITE_ENV !== 'PROD' ? import.meta.env.VITE_ENDPOINT_LOCAL : import.meta.env.VITE_ENDPOINT_HOST
 
 export const SignIn = async ({username, password}:{username:string, password:string}) =>{
     let config:object = {
@@ -9,7 +9,7 @@ export const SignIn = async ({username, password}:{username:string, password:str
         body: JSON.stringify({username, password})
     }
     const signIn = await fetch(endpoint + 'signin', config)
-    if(signIn.ok){
+    if(signIn.ok){        
         return await signIn.json()
     }else{
         return 'Failed'
