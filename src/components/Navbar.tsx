@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import Hamburger from '../components/Hamburger'
 import Button from './Button'
 import { UserContext } from '../utils/store/UserStore'
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
+import { useNavigate } from 'react-router-dom'
 import ModalResponsive from './ModalResponsive'
 import { FaRegHandSpock } from "react-icons/fa";
 
@@ -15,30 +16,26 @@ const Navbar = () => {
     const handleSignOut = () =>{
         setIsOpenModal(!isOpenModal)        
     }
-
-    const signOut = () =>{
-        Object.keys(Cookies.get()).forEach(function(cookieName) {            
-            var cookiePath = 
-            [
-                {
-                    path:'/',
-                    domain: 'localhost'
-                },
-                {
-                    path: '/',
-                    domain: 'https://www.jemmyblair.xyz'
-                },
-                {
-                    path: '/',
-                    domain: 'www.jemmyblair.xyz'
+    const navigate = useNavigate()
+    const signOut = () =>{       
+        (function () {
+            var cookies = document.cookie.split("; ");
+            for (var c = 0; c < cookies.length; c++) {
+                var d = window.location.hostname.split(".");
+                while (d.length > 0) {
+                    var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+                    var p = location.pathname.split('/');
+                    document.cookie = cookieBase + '/';
+                    while (p.length > 0) {
+                        document.cookie = cookieBase + p.join('/');
+                        p.pop();
+                    };
+                    d.shift();
                 }
-            ]            
-            cookiePath.forEach((cookiePathItem)=>{
-                Cookies.remove(cookieName, cookiePathItem);
-            })
-        });        
+            }
+        })();
         setUserDetails({username: '', role: ''})
-        window.location.reload()
+        navigate('/')
     }
     return (
         <>
