@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useMemo } from "react"
+import { SetStateAction, useEffect } from "react"
 
 interface IModalProps {
     isOpen: boolean
