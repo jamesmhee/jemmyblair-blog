@@ -7,4 +7,7 @@ export default defineConfig({
     react(), // Include the react plugin
     MillionLint.vite() // Include the MillionLint plugin
   ],
+  define: {
+    'process.env': {},
+  },
 });
