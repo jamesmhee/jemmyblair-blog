@@ -1,3 +1,4 @@
+import { IPasswordProps } from '../utils/store/UserInterface'
 const endpoint = import.meta.env.VITE_ENV === 'PROD' ? import.meta.env.VITE_ENDPOINT_HOST : import.meta.env.VITE_ENDPOINT_LOCAL;
 
 export const SignIn = async ({username, password}:{username:string, password:string}) =>{
@@ -8,11 +9,15 @@ export const SignIn = async ({username, password}:{username:string, password:str
         },
         body: JSON.stringify({username, password})
     }
-    const signIn = await fetch(endpoint + 'signin', config)
-    if(signIn.ok){        
-        return await signIn.json()
-    }else{
-        return 'Failed'
+    try{
+        const signIn = await fetch(endpoint + 'signin', config)
+        if(signIn.ok){        
+            return await signIn.json()
+        }else{
+            return 'Failed'
+        }
+    }catch(error){
+        console.error(error)
     }
 }
 
@@ -24,10 +29,26 @@ export const SignUp = async ({username, password}:{username:string, password:str
         },
         body: JSON.stringify({username, password})
     }
-    const signUp = await fetch(endpoint + 'signup', config)
-    if(signUp.ok){
-        return await signUp.json()
-    }else{
-        return 'Failed'
+    try{
+        const signUp = await fetch(endpoint + 'signup', config)
+        if(signUp.ok){
+            return await signUp.json()
+        }else{
+            return 'Failed'
+        }
+    }catch(error){
+        console.error(error)
+    }    
+}
+
+export const ChangePassword = async (passwordObj:IPasswordProps) =>{
+    let config:object = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",            
+        },
+        body: JSON.stringify({})
     }
+    console.log({passwordObj})
+    return true
 }

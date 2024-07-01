@@ -11,3 +11,9 @@ export interface IStoreProps {
     isLogin: boolean
     setIsLogin: React.Dispatch<SetStateAction<boolean>>
 }
+
+export interface IPasswordProps {
+    oldPassword: string
+    newPassword: string
+    confirmNewPassword: string
+}
