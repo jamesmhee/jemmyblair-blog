@@ -27,12 +27,8 @@ const User = () => {
         setIsChangePassword(!isChangePassword)
     }
 
-    const changePassword = (event:React.FormEvent<HTMLFormElement> ) =>{
-        event.preventDefault()        
-
-    }
-
-    const checkMatchPassword = async () =>{
+    const checkMatchPassword = async (event:React.FormEvent<HTMLFormElement>) =>{
+        event.preventDefault()
         if(passwordObj.newPassword === passwordObj.oldPassword){
             alert('New Password Can not same old')
         }else if(passwordObj.newPassword !== passwordObj.confirmNewPassword){
@@ -63,11 +59,11 @@ const User = () => {
             </div>
             {isChangePassword && 
             (<div className={(isChangePassword ? 'flex' : 'hidden' ) + ' max-w-72 w-full'}>
-                <form onSubmit={changePassword} className='flex flex-col gap-3'>
+                <form onSubmit={checkMatchPassword} className='flex flex-col gap-3'>
                     <Input type={'password'} placeholder='Old Password' onInput={(event)=>setPasswordObj({...passwordObj, oldPassword: event?.target.value})}/>
                     <Input type={'password'} placeholder='New Password' onInput={(event)=>setPasswordObj({...passwordObj, newPassword: event?.target.value})}/>
                     <Input type={'password'} placeholder='Confim New Password' onInput={(event)=>setPasswordObj({...passwordObj, confirmNewPassword: event?.target.value})}/>
-                    <Button text={'Change Password'} type={'submit'} style={'warning'} onClick={checkMatchPassword}/>
+                    <Button text={'Change Password'} type={'submit'} style={'warning'}/>
                 </form>                
             </div>)
             }
