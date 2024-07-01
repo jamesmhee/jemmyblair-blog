@@ -1,18 +1,15 @@
-import React, { useContext, useEffect, useMemo } from 'react'
+import { useContext, useEffect } from 'react'
 import { UserContext } from '../utils/store/UserStore'
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
 
-type Props = {}
-
-const User = (props: Props) => {
+const User = () => {
     const navigate = useNavigate()
-    const {userDetails, setUserDetails} = useContext(UserContext)
+    const {userDetails} = useContext(UserContext)
 
 
-    useEffect(() => {
-        console.log(userDetails);
-        if (userDetails.username === '' && userDetails.role === '') {            
+    useEffect(() => {        
+        if (userDetails.username === '' && userDetails.role === '') {
             // navigate('/signin');
         }
     }, [userDetails, navigate]);
