@@ -36,8 +36,7 @@ export const UserStore = ({children}:IChildrenProps) => {
     useEffect(()=>{                
         const url:string = window.location.pathname        
         if(userDetails.username && userDetails.role && url.indexOf('signin') < 0){
-            Cookies.set("userDetails", JSON.stringify(userDetails), { secure: true, sameSite: 'Strict' })
-            setIsLogin(true)            
+            Cookies.set("userDetails", JSON.stringify(userDetails), { secure: true, sameSite: 'Strict' })            
         }
         
     }, [userDetails])

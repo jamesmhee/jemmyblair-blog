@@ -5,6 +5,8 @@ import Button from './Button'
 import { UserContext } from '../utils/store/UserStore'
 import Cookies from 'js-cookie'
 import ModalResponsive from './ModalResponsive'
+import { FaRegHandSpock } from "react-icons/fa";
+
 
 const Navbar = () => {
     const { userDetails, setUserDetails } = useContext(UserContext)      
@@ -58,9 +60,12 @@ const Navbar = () => {
                     : 
                     (
                         <>
-                            <li>
-                                <span>Hello, {userDetails.username}</span>
-                            </li>
+                            <Link to="user">
+                                <li className='hover:text-rose-500 flex gap-3 items-center'>
+                                    <FaRegHandSpock/>
+                                    <span>HELLO, {userDetails.username}</span>
+                                </li>
+                            </Link>
                             <li>                            
                                 <Button type={'button'} text={'SIGN OUT'} style={'signout'} onClick={handleSignOut}/>
                             </li>
@@ -85,9 +90,12 @@ const Navbar = () => {
                             ) : 
                             (
                                 <>
-                                    <li>
-                                        <span>Hello, {userDetails.username}</span>
-                                    </li>
+                                    <Link to="user">
+                                        <li className='hover:text-rose-500 flex gap-3 items-center'>
+                                            <FaRegHandSpock/>
+                                            <span>HELLO, {userDetails.username}</span>
+                                        </li>
+                                    </Link>
                                     <li>                                   
                                         <Button type={'button'} text={'SIGN OUT'} style={'signout'} onClick={handleSignOut}/>
                                     </li>

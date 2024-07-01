@@ -22,6 +22,8 @@ const Button = ({text, style, type, onClick}: Props) => {
             return 'btn-accent'
         }else if(style === 'signout'){
             return 'btn-error'
+        }else{
+            return `btn-`+style
         }
     }
 
