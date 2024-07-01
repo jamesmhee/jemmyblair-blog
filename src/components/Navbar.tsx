@@ -26,6 +26,10 @@ const Navbar = () => {
                 },
                 {
                     path: '/',
+                    domain: 'https://www.jemmyblair.xyz'
+                },
+                {
+                    path: '/',
                     domain: 'www.jemmyblair.xyz'
                 }
             ]            
