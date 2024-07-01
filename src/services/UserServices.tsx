@@ -49,6 +49,6 @@ export const ChangePassword = async (passwordObj:IPasswordProps) =>{
         },
         body: JSON.stringify({})
     }
-    console.log({passwordObj})
+    console.log({passwordObj}, config)
     return true
 }
