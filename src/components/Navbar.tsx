@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Hamburger from '../components/Hamburger'
 import Button from './Button'
@@ -36,7 +36,7 @@ const Navbar = () => {
         })();
         setUserDetails({username: '', role: ''})
         navigate('/')
-    }
+    }        
     return (
         <>
             <ModalResponsive setIsOpen={setIsOpenModal} isOpen={isOpenModal} size={'xl'} headerText={'Are you sure to sign out ?'} onClick={signOut}/>

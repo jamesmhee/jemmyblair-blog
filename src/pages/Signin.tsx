@@ -49,7 +49,7 @@ const Signin = () => {
       const login = setToken(signIn.data.token)              
       if(login){
         setUserDetails({...userDetails, username: signIn.data.username, role: signIn.data.role})        
-        Cookies.set("userDetails", JSON.stringify(userDetails), { secure: true, sameSite: 'Strict' })
+        Cookies.set("userDetails", JSON.stringify(userDetails), { secure: true, sameSite: 'Strict' })        
         navigate('/')
       }
     }else{
