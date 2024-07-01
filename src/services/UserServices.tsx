@@ -1,6 +1,6 @@
 let dev = 'host'
-// const endpoint = dev === 'dev' ? process.env.ENDPOINT_LOCAL : process.env.ENDPOINT_HOST
-const endpoint = dev === 'dev' ? 'http://127.0.0.1:3333/blog/' : 'https://api.carmanrider.autos/blog/'
+const endpoint = dev === 'dev' ? process.env.ENDPOINT_LOCAL : process.env.ENDPOINT_HOST
+// const endpoint = dev === 'dev' ? 'http://127.0.0.1:3333/blog/' : 'https://api.carmanrider.autos/blog/'
 
 export const SignIn = async ({username, password}:{username:string, password:string}) =>{
     let config:object = {
