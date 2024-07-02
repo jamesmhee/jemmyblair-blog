@@ -9,8 +9,11 @@ const BlogContainer = () => {
     const getData = await getBlogList()
       if(getData){
         setBlogList(getData)
-    }
-
+      }else{
+        setTimeout(()=>{
+          getBlogData()
+        }, 2000)
+      }
   }
 
   useEffect(()=>{
