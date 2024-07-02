@@ -47,8 +47,8 @@ const Signup = () => {
       <b className='text-2xl'>SIGN UP</b>
       {isSignup && <Loading word={'Sign up..'}/>}
       <form onSubmit={signUp} className='flex justify-center gap-5 flex-col items-center w-full'>
-        <Input onInput={setUsername} type={'text'} placeholder={'USERNAME'}/>
-        <Input onInput={setPassword} type={'password'} placeholder={'PASSWORD'}/>
+        <Input required={true} onInput={setUsername} type={'text'} placeholder={'USERNAME'}/>
+        <Input required={true} onInput={setPassword} type={'password'} placeholder={'PASSWORD'}/>
         <div className='flex gap-5'>
           <Button type={'submit'} text={'SIGN UP'} style={'signup'}/>
           {/* <Button type={'button'} text={'Sign Up'} style={'accent'}/> */}

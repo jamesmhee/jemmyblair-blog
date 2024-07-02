@@ -9,7 +9,7 @@ import User from './pages/User';
 import './index.css';
 
 function App() {  
-  return (
+  return (    
     <BrowserRouter>
       <Layout>        
         <Navbar />        
@@ -18,8 +18,8 @@ function App() {
             <Route path="/" element={<Home />} />          
             <Route path="*" element={<Notfound />} />          
             <Route path="signin" element={<Signin />} />          
-            <Route path="signup" element={<Signup />} />          
-            <Route path="user" element={<User />} />          
+            <Route path="signup" element={<Signup />} />                      
+            <Route path="user" element={<User />} />                            
           </Routes>
         </div>
       </Layout>

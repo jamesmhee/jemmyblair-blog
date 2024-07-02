@@ -6,10 +6,14 @@ interface IModalProps {
     headerText: string
     size?: string
     text?: string
+    element?: JSX.Element | JSX.Element[]
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    confirmButton?: string
+    cancelButton?: string
+    hideButton?: boolean 
 }
 
-const ModalResponsive = ({isOpen, setIsOpen, headerText, size, text, onClick}:IModalProps) => {       
+const ModalResponsive = ({isOpen, setIsOpen, headerText, size, text, element, onClick, confirmButton = 'Yes', cancelButton = 'Nope', hideButton = false}:IModalProps) => {       
     const onClickModal = () =>{
         const buttonClick:HTMLElement | HTMLButtonElement | null = document.getElementById('my_modal_4')
         if(buttonClick instanceof HTMLDialogElement){
@@ -72,21 +76,29 @@ const ModalResponsive = ({isOpen, setIsOpen, headerText, size, text, onClick}:IM
         {
         isOpen ?
             (
-            <>
+            <div className="relative">
                 <button className="hidden" id="btn_modal" onClick={onClickModal}>open modal</button>
                 <dialog id="my_modal_4" className="modal modal-bottom sm:modal-middle" onCancel={handleEsc}>
                 <div className={'modal-box w-full ' + mediaScreen()}>
                     <h3 className="font-bold text-lg">{headerText}</h3>
                     <p>{text}</p>
+                    {element}
                     <div className="modal-action">                        
                     <form method="dialog" className="flex gap-5">
-                        <button onClick={()=>setIsOpen(false)} className="btn btn-success btn-outline">Nope</button>
-                        <button onClick={onClick} className="btn btn-error btn-outline">Yes</button>
+                        {
+                            !hideButton && 
+                            (
+                            <>
+                                <button onClick={()=>setIsOpen(false)} className="btn btn-success btn-outline">{cancelButton}</button>
+                                <button onClick={onClick} className="btn btn-error btn-outline">{confirmButton}</button>
+                            </>
+                            )
+                        }                        
                     </form>
                     </div>
                 </div>
                 </dialog>       
-            </>
+            </div>
             )
             :
             (

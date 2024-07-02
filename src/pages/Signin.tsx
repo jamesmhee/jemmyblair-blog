@@ -32,7 +32,7 @@ const Signin = () => {
     if(!token){
       return false
     }
-    Cookies.set('Authoriztion', token, { secure: true, sameSite: 'Strict' })
+    Cookies.set('Authorization', token, { secure: true, sameSite: 'Strict' })
     return true
   }
 
@@ -70,8 +70,8 @@ const Signin = () => {
       <b className='text-2xl'>SIGN IN</b>
       {isLogin && <Loading word={'Sign In..'}/>}
       <form onSubmit={signIn} className='flex justify-center gap-5 flex-col items-center w-full'>
-        <Input onInput={setUserName} type={'text'} placeholder={'USERNAME'}/>
-        <Input onInput={setPassWord} type={'password'} placeholder={'PASSWORD'}/>
+        <Input required={true} onInput={setUserName} type={'text'} placeholder={'USERNAME'}/>
+        <Input required={true} onInput={setPassWord} type={'password'} placeholder={'PASSWORD'}/>
         <div className='flex gap-5'>
           <Button type={'submit'} text={'SIGN IN'} style={'signin'}/>
           <Link to="/signup">

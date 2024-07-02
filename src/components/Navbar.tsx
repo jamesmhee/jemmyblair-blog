@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Hamburger from '../components/Hamburger'
 import Button from './Button'
@@ -35,6 +35,7 @@ const Navbar = () => {
             }
         })();
         setUserDetails({username: '', role: ''})
+        setIsOpenModal(false)
         navigate('/')
     }        
     return (

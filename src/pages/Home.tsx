@@ -1,11 +1,12 @@
 import { useContext } from "react"
 import { UserContext } from "../utils/store/UserStore"
+import BlogContainer from "../components/BlogContainer"
 
 const Home = () => {        
     const { userDetails } = useContext(UserContext)
   return (    
-    <div className="flex items-center justify-center text-4xl h-full">
-      H! {userDetails.username}
+    <div className="flex flex-col text-4xl bg-zinc-900 w-[90%] mx-auto h-full p-5 mt-2 overflow-hidden">      
+      <BlogContainer/>
     </div>
   )
 }
