@@ -7,7 +7,7 @@ import { IPasswordProps } from '../utils/store/UserInterface'
 import { ChangePassword } from '../services/UserServices'
 import ModalResponsive from '../components/ModalResponsive'
 import CreateBlog from '../components/CreateBlog'
-import { BlogContext, BlogStore } from '../utils/store/BlogStore'
+import { BlogStore } from '../utils/store/BlogStore'
 
 const User = () => {
     const navigate = useNavigate()
