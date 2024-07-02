@@ -6,7 +6,7 @@ const Home = () => {
     const { userDetails } = useContext(UserContext)
     console.log(userDetails)
   return (    
-    <div className="flex flex-col text-4xl bg-zinc-900 w-[90%] mx-auto h-full p-5 mt-2 overflow-hidden">      
+    <div className="flex flex-col text-4xl w-full mx-auto h-max p-5 mt-2 overflow-x-hidden overflow-y-auto">
       <BlogContainer/>
     </div>
   )
