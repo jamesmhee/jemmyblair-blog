@@ -3,6 +3,7 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import { SignUp } from '../services/UserServices'
 import Loading from '../components/Loading'
+import { useNavigate } from 'react-router-dom'
 
 interface ISignUpProps{
     username: string
@@ -10,6 +11,7 @@ interface ISignUpProps{
 }
 
 const Signup = () => {
+    const navigate = useNavigate()
     const [UserForm, setUserForm] = useState<ISignUpProps>({
         username: '',
         password: ''
@@ -27,7 +29,8 @@ const Signup = () => {
         setIsSignup(true)
         const sendSignup = await SignUp(UserForm)
         if(sendSignup !== 'Failed'){
-            alert("Sign Up Success Welcome New Member :)")            
+            alert("Sign Up Success Welcome New Member :)") 
+            navigate('signin')
         }else{            
             alert("User Duplicated :(")            
         }
