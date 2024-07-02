@@ -32,7 +32,7 @@ export const getBlogList = async (): Promise<IBlogListProps | undefined> => {
         }
     }   
     try{
-        const getBlog = await fetch(endpoint + '/bloglist', config)
+        const getBlog = await fetch(endpoint + 'bloglist', config)
         if(getBlog.ok){
             const data:IBlogListProps =  await getBlog.json()
             return data
