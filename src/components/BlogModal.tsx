@@ -16,6 +16,7 @@ const BlogModal = ({data, isOpen, setIsOpen, onClick}:IBlogModalProps) => {
           <button className="text-rose-500" onClick={()=>setIsOpen(false)}>
             <IoIosCloseCircleOutline/>
           </button>
+          <button className="hidden" onClick={onClick}></button>
         </div>
         <div className="overflow-y-auto h-full px-5 flex flex-col w-full">            
             <div className="divider">{data?.topic}</div>
