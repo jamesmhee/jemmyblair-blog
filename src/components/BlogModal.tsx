@@ -11,7 +11,7 @@ interface IBlogModalProps {
 const BlogModal = ({data, isOpen, setIsOpen, onClick}:IBlogModalProps) => {
   return (    
     <div className={(isOpen ? 'flex' : 'hidden' )+ ' w-screen h-screen bg-zinc-900 bg-opacity-80 items-center fixed top-0 left-0 z-[11]'}>
-      <div className="bg-base-200 w-full h-[80%] mx-5 rounded-box">
+      <div className="bg-base-200 w-[90%] h-[80%] mx-auto rounded-box ">
         <div className="flex justify-end mt-5 mx-3">
           <button className="text-rose-500" onClick={()=>setIsOpen(false)}>
             <IoIosCloseCircleOutline/>
