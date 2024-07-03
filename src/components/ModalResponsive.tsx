@@ -58,7 +58,7 @@ const ModalResponsive = ({isOpen, setIsOpen, headerText, size, text, element, on
             return 'max-w-6xl'
         }else if(size === '7xl'){
             return 'max-w-7xl'
-        }else if(size === 'max'){
+        }else if(size === 'full'){
             return 'max-w-full'
         }else if(size === 'min'){
             return 'max-w-min'

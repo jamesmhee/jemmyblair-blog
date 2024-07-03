@@ -4,6 +4,7 @@ import { useCallback, useContext, useState } from 'react'
 import { BlogContext } from "../utils/store/BlogStore"
 import Button from "./Button"
 import { postBlog } from "../services/BlogServices"
+import LoadingInModal from "./LoadingInModal"
 
 const CreateBlog = () => {
     const { blogDetails , setBlogDetails } = useContext(BlogContext)
@@ -42,16 +43,7 @@ const CreateBlog = () => {
             <Input type={'text'} placeholder={'Topic'} required={true} onInput={setTopic}/>
             <Textarea resize={'no'} rows={12} cols={100} placeholder={'Subject'} onInput={setTextBlog}/>    
             <Button type={'submit'} text={'Create Post'} style={'success'} />
-            {
-                isLoading ? 
-                (
-                    <div className="flex flex-col gap-5 items-center w-full justify-center absolute top-0 left-0 bg-zinc-800 bg-opacity-80 h-full">
-                        <span className="loading loading-spinner text-success w-32"></span>
-                        <span className="font-bold">Creating Blog..</span>
-                    </div>
-                ) 
-                : (<></>)
-            }                    
+            <LoadingInModal word={'Creating Blog..'} isOpen={isLoading} style={'success'}/>
         </form>
     </>
   )

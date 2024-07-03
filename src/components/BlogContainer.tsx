@@ -4,12 +4,16 @@ import { getBlogList } from "../services/BlogServices"
 import { IoHeartOutline } from "react-icons/io5";
 import { FaRegComment } from "react-icons/fa";
 import { GoPencil } from "react-icons/go";
+import { doActivity } from "../services/BlogServices"
 import BlogModal from "./BlogModal";
+import ModalResponsive from "./ModalResponsive";
+import CommentInput from "./CommentInput";
 
 const BlogContainer = () => {
   const [blogList, setBlogList] = useState<IBlogListProps | null>(null)
   const [blog, setBlog] = useState<BlogListProps | undefined>(undefined)  
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
+  const [isOpenComment, setIsOpenComment] = useState<boolean>(false)
 
   const getBlogData = async () =>{
     const getData = await getBlogList()
@@ -44,6 +48,19 @@ const BlogContainer = () => {
     setBlog(data)
   }
 
+  const handleActivity = async (id:number, type:string) =>{
+    const do_activity = await doActivity(id, type)
+    if(do_activity){
+      await getBlogData()
+    }
+  }
+
+  const handleComment = (index: number) =>{        
+    const data:BlogListProps | undefined = blogList?.data?.[index]    
+    setBlog(data)
+    setIsOpenComment(!isOpenComment)
+  }
+
   return (        
     <>    
     {
@@ -57,11 +74,11 @@ const BlogContainer = () => {
               </div>
               <div className="bg-base-200 flex justify-start px-4 py-5 min-h-[200px] max-h-[350px]">{elm?.text}</div>              
               <div className="flex justify-center sm:justify-end">
-                <div className="text-sm px-5 py-2 text-right flex items-center gap-2">
+                <div onClick={()=>handleActivity(elm.id, 'like')} className="cursor-pointer text-sm px-5 py-2 text-right flex items-center gap-2">
                   <IoHeartOutline/>
                   {elm?.total_likes ?? 0}
                 </div>
-                <div className="text-sm px-5 py-2 text-right flex items-center gap-2">
+                <div onClick={()=>handleComment(index)} className="cursor-pointer text-sm px-5 py-2 text-right flex items-center gap-2">
                   <FaRegComment/>
                   {elm?.total_comments ?? 0}
                 </div>
@@ -77,6 +94,7 @@ const BlogContainer = () => {
       (<>Loading...</>)
     }
     <BlogModal data={blog} isOpen={isOpenModal} setIsOpen={setIsOpenModal} onClick={handleBlogModal}/>
+    <ModalResponsive size={'full'} hideButton={true} isOpen={isOpenComment} setIsOpen={setIsOpenComment} headerText={'Comment Post'} confirmButton={'Comment'} element={<CommentInput data={blog} onClick={getBlogData} setIsOpenComment={setIsOpenComment}/>}/>
     </>
   )
 }

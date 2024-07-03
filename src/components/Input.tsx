@@ -16,7 +16,7 @@ const Input = ({ type, placeholder, onInput, required }: IInputProps) => {
         type={type}
         autoComplete={type === 'password' ? 'current-password' : 'username'}
         placeholder={placeholder}
-        className="input input-bordered w-full max-w-[500px] file:px-5 mx-5 sm:mx-0"
+        className="input input-bordered w-full px-5 sm:mx-0"
       />
     </div>
   );

@@ -43,3 +43,28 @@ export const getBlogList = async (): Promise<IBlogListProps | undefined> => {
         console.error(error)
     }
 }
+
+export const doActivity = async (id:number | undefined, type:string, text?:string) =>{
+    const token = Cookies.get('Authorization')
+    let config:object = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        },
+        body: JSON.stringify({
+            id: id,
+            text: text
+        })
+    }
+    try{
+        const activity = await fetch(endpoint + `activity/${type}`, config)
+        if(activity.ok){
+            return await activity.json()
+        }else{
+            throw new Error(activity.statusText)
+        }
+    }catch(error){
+        console.error(error)
+    }    
+}
