@@ -49,7 +49,7 @@ const Signup = () => {
     <div className='flex flex-col gap-2 items-center w-screen h-full justify-center'>      
       <b className='text-2xl'>SIGN UP</b>
       {isSignup && <Loading word={'Sign up..'}/>}
-      <form onSubmit={signUp} className='flex justify-center gap-5 flex-col items-center w-full'>
+      <form onSubmit={signUp} className='flex justify-center gap-5 flex-col items-center w-full px-5'>
         <Input required={true} onInput={setUsername} type={'text'} placeholder={'USERNAME'}/>
         <Input required={true} onInput={setPassword} type={'password'} placeholder={'PASSWORD'}/>
         <div className='flex gap-5'>

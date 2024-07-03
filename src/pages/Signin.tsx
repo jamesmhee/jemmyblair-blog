@@ -69,7 +69,7 @@ const Signin = () => {
     <div className='flex flex-col gap-2 items-center w-screen h-full justify-center'>      
       <b className='text-2xl'>SIGN IN</b>
       {isLogin && <Loading word={'Sign In..'}/>}
-      <form onSubmit={signIn} className='flex justify-center gap-5 flex-col items-center w-full'>
+      <form onSubmit={signIn} className='flex justify-center gap-5 flex-col items-center w-full px-5'>
         <Input required={true} onInput={setUserName} type={'text'} placeholder={'USERNAME'}/>
         <Input required={true} onInput={setPassWord} type={'password'} placeholder={'PASSWORD'}/>
         <div className='flex gap-5'>
