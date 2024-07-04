@@ -34,7 +34,7 @@ const Navbar = () => {
     return (
         <div className='z-10 sticky top-0'>
             <ModalResponsive setIsOpen={setIsOpenModal} isOpen={isOpenModal} size={'xl'} headerText={'Are you sure to sign out ?'} onClick={signOut}/>
-            <nav className="navbar flex justify-between bg-base-100 border-b sticky top-0 z-[9999]">        
+            <nav className="navbar flex justify-between bg-base-100 border-b z-[9999]">        
                 <Link to="/">
                     <button className='btn btn-ghost text-xl rounded-2xl'>
                         JEMMYBLAIR

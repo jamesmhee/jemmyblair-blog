@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  overflow: hidden;
+:root{
+  overflow: auto;
 }
 
 *{
