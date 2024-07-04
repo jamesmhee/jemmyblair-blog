@@ -15,7 +15,7 @@ interface IModalProps {
 
 const ModalResponsive = ({isOpen, setIsOpen, headerText, size, text, element, onClick, confirmButton = 'Yes', cancelButton = 'Nope', hideButton = false}:IModalProps) => {       
     const onClickModal = () =>{
-        const buttonClick:HTMLElement | HTMLButtonElement | null = document.getElementById('my_modal_4')
+        const buttonClick:HTMLElement | HTMLButtonElement | null = document.getElementById('my_modal_2')
         if(buttonClick instanceof HTMLDialogElement){
             buttonClick.showModal()
         }
@@ -76,15 +76,18 @@ const ModalResponsive = ({isOpen, setIsOpen, headerText, size, text, element, on
         {
         isOpen ?
             (
-            <div className="relative">
+            <div className="relative">                                
                 <button className="hidden" id="btn_modal" onClick={onClickModal}>open modal</button>
-                <dialog id="my_modal_4" className="modal modal-bottom sm:modal-middle" onCancel={handleEsc}>
-                <div className={'modal-box w-full ' + mediaScreen()}>
-                    <h3 className="font-bold text-lg">{headerText}</h3>
+                <dialog id="my_modal_2" className="modal modal-bottom sm:modal-middle" onCancel={handleEsc}>
+                <div  className={'modal-box w-full relative ' + mediaScreen()}>
+                    <h3 className="font-bold text-lg text-base-content">{headerText}</h3>
+                    <div onClick={()=>setIsOpen(false)} className="text-base-content text-xl cursor-pointer absolute top-2 right-5">
+                        x
+                    </div>
                     <p>{text}</p>
                     {element}
-                    <div className="modal-action">                        
-                    <form method="dialog" className="flex gap-5">
+                    <div className="modal-action">
+                    <form method="dialog" className="flex gap-5 modal-backdrop">
                         {
                             !hideButton && 
                             (
