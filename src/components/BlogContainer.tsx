@@ -69,7 +69,7 @@ const BlogContainer = () => {
       (
         blogList?.data?.map((elm:any, index:number)=>{
           return(
-            <div key={index} className="mockup-browser bg-base-300 mb-3">
+            <div key={index} className="mockup-browser bg-base-300 mb-5">
               <div onClick={()=>handleClickBlog(index)} className="mockup-browser-toolbar cursor-pointer">
                 <div className="input font-bold">{elm?.topic}...</div>
               </div>
