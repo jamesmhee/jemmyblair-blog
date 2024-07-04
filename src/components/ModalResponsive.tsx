@@ -87,7 +87,7 @@ const ModalResponsive = ({isOpen, setIsOpen, headerText, size, text, element, on
                     <p>{text}</p>
                     {element}
                     <div className="modal-action">
-                    <form method="dialog" className="flex gap-5 modal-backdrop">
+                    <form method="dialog" className="flex gap-5">
                         {
                             !hideButton && 
                             (
