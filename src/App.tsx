@@ -10,7 +10,7 @@ import './index.css';
 
 function App() {  
   return (    
-    <BrowserRouter>
+    <BrowserRouter>      
       <Layout>        
         <Navbar />        
         <div className='h-[90%] overflow-x-hidden bg-base-current overflow-y-auto'>
