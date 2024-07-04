@@ -34,13 +34,13 @@ const Navbar = () => {
     return (
         <div className='z-10'>
             <ModalResponsive setIsOpen={setIsOpenModal} isOpen={isOpenModal} size={'xl'} headerText={'Are you sure to sign out ?'} onClick={signOut}/>
-            <nav className="navbar flex justify-between bg-base-100 border-b sticky top-0 z-10">        
+            <nav className="navbar flex justify-between bg-base-100 border-b sticky top-0 z-[9999]">        
                 <Link to="/">
                     <button className='btn btn-ghost text-xl rounded-2xl'>
                         JEMMYBLAIR
                     </button>
                 </Link>
-                <ul className='hidden sm:flex gap-2 px-4'>            
+                <ul className='hidden sm:flex gap-2 px-4 z-[9999]'>            
                     {userDetails.username === '' ? 
                     (
                         <>
@@ -68,9 +68,9 @@ const Navbar = () => {
                     )
                     }
                 </ul>
-                <ul className='flex sm:hidden gap-2 px-4 relative'>
+                <ul className='flex sm:hidden gap-2 px-4 relative z-[9999]'>
                     <Hamburger isHamburger={isHamburger} setIsHamburger={setIsHamburger}/>                
-                    <div className={(isHamburger ? 'flex' : 'hidden' ) + ' w-max items-center gap-2 absolute top-16 right-0 flex-col'}>
+                    <div className={(isHamburger ? 'flex' : 'hidden' ) + ' w-max items-center gap-2 absolute top-16 right-0 flex-col z-[9999] overflow-auto'}>
                         {
                             userDetails.username === '' ? 
                             (
