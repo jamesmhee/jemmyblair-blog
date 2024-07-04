@@ -8,6 +8,7 @@ import { doActivity } from "../services/BlogServices"
 import BlogModal from "./BlogModal";
 import ModalResponsive from "./ModalResponsive";
 import CommentInput from "./CommentInput";
+import SkeltonHome from "./SkeltonHome";
 
 const BlogContainer = () => {
   const [blogList, setBlogList] = useState<IBlogListProps | null>(null)
@@ -91,7 +92,13 @@ const BlogContainer = () => {
           )
         })
       ) :
-      (<>Loading...</>)
+      (
+      <div className="mb-20">
+        <SkeltonHome/>
+        <SkeltonHome/>
+        <SkeltonHome/>
+      </div>
+      )
     }
     <BlogModal data={blog} isOpen={isOpenModal} setIsOpen={setIsOpenModal} onClick={handleBlogModal}/>
     <ModalResponsive size={'full'} hideButton={true} isOpen={isOpenComment} setIsOpen={setIsOpenComment} headerText={'Comment Post'} confirmButton={'Comment'} element={<CommentInput data={blog} onClick={getBlogData} setIsOpenComment={setIsOpenComment}/>}/>
