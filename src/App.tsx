@@ -13,10 +13,10 @@ function App() {
     <BrowserRouter>
       <Layout>        
         <Navbar />        
-        <div className='h-[100%] overflow-y-auto overflow-x-hidden '>
+        <div className='max-h-screen overflow-y-auto overflow-x-hidden '>
           <Routes>
             <Route path="/" element={<Home />} />          
-            <Route path="*" element={<Notfound />} />          
+            <Route path="*" element={<Notfound />} />                      
             <Route path="signin" element={<Signin />} />          
             <Route path="signup" element={<Signup />} />                      
             <Route path="user" element={<User />} />                            
