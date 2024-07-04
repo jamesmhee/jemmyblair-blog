@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Layout>        
         <Navbar />        
-        <div className='h-[calc(100vh_-_200px)] overflow-y-auto overflow-x-hidden'>
+        <div className='h-[100%] overflow-y-auto overflow-x-hidden'>
           <Routes>
             <Route path="/" element={<Home />} />          
             <Route path="*" element={<Notfound />} />          
