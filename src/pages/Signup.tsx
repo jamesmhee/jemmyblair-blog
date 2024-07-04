@@ -46,7 +46,7 @@ const Signup = () => {
     }
 
   return (
-    <div className='flex flex-col gap-2 items-center w-screen h-full justify-center'>      
+    <div className='flex flex-col gap-2 items-center w-screen h-[calc(100vh_-_250px)] sm:h-full justify-center'>      
       <b className='text-2xl'>SIGN UP</b>
       {isSignup && <Loading word={'Sign up..'}/>}
       <form onSubmit={signUp} className='flex justify-center gap-5 flex-col items-center w-full px-5'>

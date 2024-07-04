@@ -66,7 +66,7 @@ const Signin = () => {
   }, [])
   
   return (    
-    <div className='flex flex-col gap-2 items-center w-screen h-full justify-center'>      
+    <div className='flex flex-col gap-2 items-center w-screen h-[calc(100vh_-_250px)] sm:h-full justify-center'>      
       <b className='text-2xl'>SIGN IN</b>
       {isLogin && <Loading word={'Sign In..'}/>}
       <form onSubmit={signIn} className='flex justify-center gap-5 flex-col items-center w-full px-5'>
