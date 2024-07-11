@@ -68,3 +68,24 @@ export const doActivity = async (id:number | undefined, type:string, text?:strin
         console.error(error)
     }    
 }
+
+export const getBlogComment = async (blog_id: string | number) =>{
+    const token = Cookies.get('Authorization')
+    let config:object = {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        }
+    }
+    try{
+        const getComment = await fetch(endpoint + `comment/${blog_id}`, config)
+        if(getComment.ok){
+            return await getComment.json()
+        }else{
+            throw new Error(getComment.statusText)
+        }
+    }catch(error){
+        console.error(error)
+    }
+}

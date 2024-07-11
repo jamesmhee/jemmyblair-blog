@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { IBlogListProps, BlogListProps } from "../utils/store/BlogInterface"
 import { getBlogList } from "../services/BlogServices"
 import { IoHeartOutline } from "react-icons/io5";
